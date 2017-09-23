@@ -8,6 +8,7 @@
 
 #include "lua/lua.hpp"
 #include <string>
+#include <map>
 #include <stdint.h>
 
 /*
@@ -39,4 +40,12 @@ lua_intexpr( lua_State* L, const char* expr, int32_t * out );
 */
 int 
 lua_boolexpr( lua_State* L, const char* expr, bool * out);
+
+int
+lua_stringtableexpr(lua_State *, const char * expr, std::map<std::string,std::string>& );
+
+
+int
+lua_booltableexpr(lua_State *, const char * expr, std::map<std::string, bool> &);
+
 #endif
