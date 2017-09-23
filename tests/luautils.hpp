@@ -49,3 +49,4 @@ int
 lua_booltableexpr(lua_State *, const char * expr, std::map<std::string, bool> &);
 
 #endif
+

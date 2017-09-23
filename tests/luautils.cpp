@@ -277,3 +277,4 @@ lua_booltableexpr(lua_State * L , const char * expr, std::map<std::string, bool>
   return err;
   return 0;
 }
+
