@@ -1,5 +1,5 @@
 
-# cpp static embeded lua
+# cpp static embeded lua [![Build Status](https://travis-ci.org/fooofei/cpp_static_embeded_lua.svg?branch=master)](https://travis-ci.org/fooofei/cpp_static_embeded_lua)
 
 A way to use config file in c++.
 
