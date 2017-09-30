@@ -41,6 +41,9 @@ lua_intexpr( lua_State* L, const char* expr, int32_t * out );
 int 
 lua_boolexpr( lua_State* L, const char* expr, bool * out);
 
+
+// get args, push to table, have not clear the table, you can append to the table something 
+// before call this
 int
 lua_stringtableexpr(lua_State *, const char * expr, std::map<std::string,std::string>& );
 
