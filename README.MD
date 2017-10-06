@@ -9,6 +9,8 @@ not use executable lua, luac.
 
 lua is static linked in c++ project.
 
+the lua source code is download from https://www.lua.org/ftp/lua-5.3.4.tar.gz
+
 
 ## usage
 
@@ -22,3 +24,24 @@ lua is static linked in c++ project.
 how to include? 
 see https://github.com/fooofei/cpp_notes/blob/master/CMakeListsDoc.txt
 `## add other library for static link`
+
+
+## note
+
+- you can use dynamic insert in lua script
+- you can use if in lua script
+- the raw string encoding on Windows is mbcs, I supply the method string.mbcs2utf8()
+to convert mbcs encoding to utf8 encoding
+- you can use os.getenv() in lua script
+
+
+### get current directory
+```lua
+-- `S` means only return source,short_src field and etc.
+-- path is slash-ended, such as /media/vvv/
+local path_directory_current_script = debug.getinfo(1,"S").source:match[[^@?(.*[\/])[^\/]-$]]
+local path_directory_current_script_utf8=path_directory_current_script
+if(is_platform_windows) then
+  path_directory_current_script_utf8=string.mbcs2utf8(path_directory_current_script)
+end
+```

@@ -62,6 +62,11 @@ print_settings(lua_State* L)
   /* if the string of file is utf-8, then read is utf-8 */
 
   /* int values can be read as both string and int */
+
+  print_settings_string(L, "path_directory_current_script");
+  print_settings_string(L, "path_directory_current_script_utf8");
+  
+
   print_settings_int(L, "settings.resolution.width");
   print_settings_string(L, "settings.resolution.width");
   print_settings_bool(L, "settings.resolution.width");
@@ -104,12 +109,41 @@ print_settings(lua_State* L)
   }
 }
 
+
+int
+get_lua_abs_path(std::string & s)
+{
+#ifdef WIN32
+  // Windows ansi path encoding
+  s.assign("f:\\temp\\\xC9\xE8\xD6\xC3\\settings.lua");
+#else
+  // posix utf8 path encoding
+  s.assign("F:\\temp\xE8\xAE\xBE\xE7\xBD\xAE\\settings.lua");
+#endif
+
+  return 0;
+}
+
+
 int main() {
   int err;
   lua_State *L = luaL_newstate();
   luaL_openlibs(L);
 
-  err = luaL_dofile(L, "settings.lua");
+  std::string path_relative;
+  
+#ifdef WIN32
+  path_relative.append("../");
+#else
+#endif
+
+  path_relative.append("settings.lua");
+
+
+  // use the abs path to test the path encoding
+  //get_lua_abs_path(path_relative);
+
+  err = luaL_dofile(L, path_relative.c_str());
   if (err) {
     printf("Error loading file \n");
   }

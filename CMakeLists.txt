@@ -82,6 +82,8 @@ set(LUA_SOURCE
         src/lprefix.h
         src/lstate.h
         src/lstring.h
+        src/encode_string.c
+        src/encode_string.h
         )
 
 

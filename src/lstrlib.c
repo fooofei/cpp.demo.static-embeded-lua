@@ -23,6 +23,7 @@
 
 #include "lauxlib.h"
 #include "lualib.h"
+#include "encode_string.h"
 
 
 /*
@@ -1557,6 +1558,7 @@ static const luaL_Reg strlib[] = {
   {"pack", str_pack},
   {"packsize", str_packsize},
   {"unpack", str_unpack},
+  {"mbcs2utf8",str_mbcs2utf8},
   {NULL, NULL}
 };
 
