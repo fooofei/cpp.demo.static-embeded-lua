@@ -37,6 +37,7 @@ to convert mbcs encoding to utf8 encoding
 
 ### get current directory
 ```lua
+is_on_platform_windows=(package.config:sub(1,1)=="\\")
 -- `S` means only return source,short_src field and etc.
 -- path is slash-ended, such as /media/vvv/
 local path_directory_current_script = debug.getinfo(1,"S").source:match[[^@?(.*[\/])[^\/]-$]]
