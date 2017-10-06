@@ -16,6 +16,10 @@ else
   path_directory_current_script_utf8 = path_directory_current_script
 end
 
+function function_return()
+  return "string_returned_from_function"
+end
+
 settings = {
   resolution = {
     width = 800,
@@ -34,6 +38,8 @@ settings = {
       config_string2="config_string2_value",
       config_string_common1=a.."_append1", --append string
       config_string_common2=a.."_append2",
+      config_string_format=string.format("from_string_format"),
+      config_string_returned=function_return(),
     },
     config_bool={
       config_bool1=false,
