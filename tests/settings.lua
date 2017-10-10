@@ -1,10 +1,7 @@
 -- lua script can use variables, strings append methods
 -- is better than txt config files
 a = "common_value"
-is_on_platform_windows=false
-if(package.config:sub(1,1)=="\\") then
-  is_on_platform_windows=true
-end
+is_on_platform_windows=(package.config:sub(1,1)=="\\")
 
 -- in c code, if we give luaL_dofile() a relative path, then the 
 -- path_directory_current_script is a relative path, not abspath.
