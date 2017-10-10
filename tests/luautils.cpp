@@ -136,7 +136,7 @@ lua_boolexpr(lua_State* L, const char* expr, bool * out)
   err = -1;
   if (lua_isboolean(L, -1))
   {
-    *out = (bool)lua_toboolean(L, -1);
+    *out = lua_toboolean(L, -1)==0?false:true;
     err = 0;
   }
   /* remove lua_getglobal value */
@@ -258,7 +258,7 @@ lua_booltableexpr(lua_State * L , const char * expr, std::map<std::string, bool>
         size_t l1 = 0;
         bool b;
         p1 = lua_tolstring(L, -1, &l1);
-        b = (bool)lua_toboolean(L, -2);
+        b = lua_toboolean(L, -2)==0?false:true;
         if (p1 && l1)
         {
           out.insert(std::make_pair(std::string(p1, l1), b));
