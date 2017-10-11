@@ -99,6 +99,8 @@ target_include_directories(${PROJECT_NAME} INTERFACE
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 
+
+
 if(WIN32)
     #target_compile_definitions(${PROJECT_NAME} PRIVATE _CRT_SECURE_NO_WARNINGS)
     # lua 5.3.4 has no warning compiled on Visual Studio 2017
@@ -107,6 +109,16 @@ endif()
 if (UNIX)
     # for lua/src/loslib.c:111 use mkstemp instead of use tmpnam
     target_compile_definitions(${PROJECT_NAME} PRIVATE LUA_USE_POSIX)
+
+    # compile error on CentOS release 5.11 (Final)
+    # error message is:
+    #  error: #error "Compiler does not support 'long long'.
+    #  Use option '-DLUA_32BITS'   or '-DLUA_C89_NUMBERS' (see file 'luaconf.h' for details)"
+    #target_compile_definitions(${PROJECT_NAME} PRIVATE LUA_C89_NUMBERS)
+    # or
+    # this is the lua official way in lua's source code makefile
+    target_compile_options(${PROJECT_NAME} PRIVATE "-std=gnu99")
+
 endif()
 
 #target_compile_definitions(${PROJECT_NAME} PRIVATE LUA_COMPAT_5_2)
