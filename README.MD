@@ -1,23 +1,23 @@
 
 # cpp static embeded lua [![Build Status](https://travis-ci.org/fooofei/cpp_static_embeded_lua.svg?branch=master)](https://travis-ci.org/fooofei/cpp_static_embeded_lua)
 
-A way to use config file in c++.
+A way to use config file in c++, also you can use .ini as config file.
 
-use lua to read the script config file.
+Use lua script language to read the config file.
 
-not use executable lua, luac.
+This way not use executable lua, luac.
 
-lua is static linked in c++ project.
+The lua source code is static linked in c++ project, not have the binary compatible problem.
 
-the lua source code is download from https://www.lua.org/ftp/lua-5.3.4.tar.gz
+The lua source code is download from https://www.lua.org/ftp/lua-5.3.4.tar.gz
 
 
 ## usage
 
 
-1/3 sync the code, or up the latest version of lua
+1/3 sync(download) the code, and you can up the latest version of lua
 
-2/3 if update the lua source code, run `python make_incldues` to update include files.
+2/3 if you update the lua source code, run `python make_incldues.py` to update lua include files.
 
 3/3 include the cmake files.
 
@@ -28,14 +28,14 @@ see https://github.com/fooofei/cpp_notes/blob/master/CMakeListsDoc.txt
 
 ## note
 
-- you can use dynamic insert in lua script
-- you can use if in lua script
+- the advantage of use lua script as config file is you can use dynamic insert
+- the advantage of use lua script as config file is you can use `if` statement
 - the raw string encoding on Windows is mbcs, I supply the method string.mbcs2utf8()
 to convert mbcs encoding to utf8 encoding
-- you can use os.getenv() in lua script
+- the advantage of use lua script as config file is you can use built-in function such as  `os.getenv()` in lua script
 
 
-### get current directory
+### how to get current directory in lua script ?
 ```lua
 is_on_platform_windows=(package.config:sub(1,1)=="\\")
 -- `S` means only return source,short_src field and etc.
