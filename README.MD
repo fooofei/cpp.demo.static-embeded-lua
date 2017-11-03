@@ -1,16 +1,17 @@
 
 # cpp static embeded lua [![Build Status](https://travis-ci.org/fooofei/cpp_static_embeded_lua.svg?branch=master)](https://travis-ci.org/fooofei/cpp_static_embeded_lua)
 
-A way to use config file in c++, also you can use .ini as config file.
+A way to use config file in c++, also you can use `.ini` as config file.
 
 Use lua script language to read the config file.
 
-This way not use executable lua, luac.
+This solution not use the executable `lua`, `luac`.
 
-The lua source code is static linked in c++ project, not have the binary compatible problem.
+The lua source code is static linked into C++ project, not have the binary compatible problem, it will be compile/link with the source code everytime.
 
 The lua source code is download from https://www.lua.org/ftp/lua-5.3.4.tar.gz
 
+Here is an article for why use embeded script language lua for parse config file https://accu.org/index.php/journals/351
 
 ## usage
 
@@ -46,3 +47,6 @@ if(is_platform_windows) then
   path_directory_current_script_utf8=string.mbcs2utf8(path_directory_current_script)
 end
 ```
+
+### the risk of security
+not checked
