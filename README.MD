@@ -13,6 +13,8 @@ The lua source code is download from https://www.lua.org/ftp/lua-5.3.4.tar.gz
 
 Here is an article for why use embeded script language lua for parse config file [Embedded Scripting Languages](https://accu.org/index.php/journals/351)
 
+Similar to lua, there also have a language called `lemon`, aimed to embeded to c [github url](https://github.com/lemon-lang/lemon)
+
 ## usage
 
 
