@@ -1,0 +1,3 @@
+[submodule "c_cpp_common"]
+	path = c_cpp_common
+	url = https://github.com/fooofei/c_cpp_common.git

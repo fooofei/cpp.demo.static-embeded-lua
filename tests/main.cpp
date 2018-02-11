@@ -5,8 +5,8 @@
 
 #ifdef WIN32
 #ifdef _DEBUG
-#include "../../cpp_common/detectmemleak.h"
-struct _crt_dbg_leak_t g_leak(0);
+#include <crt_dbg_leak.h>
+_crt_dbg_leak_t g_leak(0);
 #endif
 #endif
 
