@@ -107,6 +107,8 @@ target_include_directories(${self} INTERFACE
 if(WIN32)
     #target_compile_definitions(${PROJECT_NAME} PRIVATE _CRT_SECURE_NO_WARNINGS)
     # lua 5.3.4 has no warning compiled on Visual Studio 2017
+
+    target_compile_options(${self} PRIVATE /source-charset:utf-8 /execution-charset:utf-8)
 endif()
 
 if (UNIX)
