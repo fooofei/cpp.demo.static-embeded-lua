@@ -19,7 +19,7 @@ add_executable(${self}
 
 
 if (NOT TARGET lua)
-    add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../  build_liblua)
+    add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../lua_dirty  build_liblua)
 endif ()
 target_link_libraries(${self} lua)
 target_include_directories(${self} PRIVATE ${c_common})

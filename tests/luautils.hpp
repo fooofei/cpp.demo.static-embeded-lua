@@ -6,7 +6,6 @@
 #ifndef WINDREALM_LUA_UTILS_H
 #define WINDREALM_LUA_UTILS_H
 
-#include "lua/lua.hpp"
 #include <string>
 #include <map>
 #include <stdint.h>
@@ -14,6 +13,8 @@
 /*
   all api return 0 for success
 */
+
+struct lua_State;
 
 /**
   Evaluates a Lua expression and fill in the string result.

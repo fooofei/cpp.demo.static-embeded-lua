@@ -3,6 +3,12 @@
 #include <sstream>
 #include <algorithm>
 
+extern "C" {
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
+}
+
 int
 lua_stringexpr(lua_State* L, const char* expr, std::string & out)
 {

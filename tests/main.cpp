@@ -1,7 +1,15 @@
-#include "luautils.hpp"
+
 #include <stdio.h>
 
 #include <sstream>
+
+extern "C" {
+#include <lua/lua.h>
+#include <lua/lualib.h>
+#include <lua/lauxlib.h>
+}
+
+#include "luautils.hpp"
 
 #ifdef WIN32
 #ifdef _DEBUG
